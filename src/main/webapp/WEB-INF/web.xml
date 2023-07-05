@@ -3,4 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
+<!--    <servlet>-->
+<!--        <servlet-name>GetServlet</servlet-name>-->
+<!--        <servlet-class>com.example.hplussample.servlet.GetServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>URL</param-name>-->
+<!--            <param-value>https://www.weatherservice.com</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>GetServlet</servlet-name>-->
+<!--        <url-pattern>/getServlet</url-pattern>-->
+<!--    </servlet-mapping>-->
+    
+    <context-param>
+        <param-name>dbURL</param-name>
+        <param-value>jdbc:postgresql://localhost/postgres</param-value>
+    </context-param>
 </web-app>

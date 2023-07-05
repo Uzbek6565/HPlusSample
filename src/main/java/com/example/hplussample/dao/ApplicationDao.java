@@ -1,11 +1,9 @@
 package com.example.hplussample.dao;
 
 import com.example.hplussample.bean.Product;
+import com.example.hplussample.bean.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,16 +12,16 @@ public class ApplicationDao {
         List<Product> products = new ArrayList<>();
 
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM product WHERE name like '%" + searchString + "%'";
+        String query = "SELECT * FROM h_products WHERE product_name like '%" + searchString + "%'";
         Statement statement = null;
         try {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 Product product = new Product();
-                product.setProductId(resultSet.getInt("id"));
-                product.setProductName(resultSet.getString("name"));
-                product.setProductImgPath(resultSet.getString("img_path"));
+                product.setProductId(resultSet.getInt("product_id"));
+                product.setProductName(resultSet.getString("product_name"));
+                product.setProductImgPath(resultSet.getString("image_path"));
                 products.add(product);
             }
         } catch (SQLException e) {
@@ -31,5 +29,27 @@ public class ApplicationDao {
         }
 
         return products;
+    }
+
+    public int registerUser(User user) {
+        int rowsAffected = 0;
+        try {
+            Connection connection = DBConnection.getConnectionToDatabase();
+
+            String query = "INSERT INTO h_users values(?,?,?,?,?,?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getUsername());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(3, user.getFirstName());
+            preparedStatement.setString(4, user.getLastName());
+            preparedStatement.setString(5, user.getActivity());
+            preparedStatement.setInt(6, user.getAge());
+
+            rowsAffected = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return rowsAffected;
     }
 }
