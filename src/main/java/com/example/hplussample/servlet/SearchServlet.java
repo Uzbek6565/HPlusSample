@@ -24,13 +24,14 @@ public class SearchServlet extends HttpServlet {
         List<Product> products = applicationDao.searchProduct(parameter);
 
         // write the products data back to the client browser
-        if (products.size() != 0){
-            String htmlString = getHTMLString(req.getServletContext().getRealPath("/html/search.html"), products);
-            resp.getWriter().write(htmlString);
-        }else {
-            resp.getWriter().write("No products found");
-
-        }
+//        if (products.size() != 0){
+//            String htmlString = getHTMLString(req.getServletContext().getRealPath("/html/search.html"), products);
+//            resp.getWriter().write(htmlString);
+//        }else {
+//            resp.getWriter().write("No products found");
+//        }
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/html/search.jsp").forward(req, resp);
     }
 
     public String getHTMLString(String filePath, List<Product> products) throws IOException {

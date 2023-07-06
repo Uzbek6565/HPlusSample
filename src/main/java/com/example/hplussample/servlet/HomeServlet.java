@@ -19,7 +19,8 @@ public class HomeServlet extends HttpServlet {
     public void init() throws ServletException {
         // initialization activity - set up DB connection object
         System.out.println("in init method");
-        connection = DBConnection.getConnectionToDatabase();
+        connection = DBConnection.getConnectionToDatabase(); //in real projects, you can set up a complete connection pool,
+                                                            // which has got a lot of db objects and that can be reused by the users for your application
 
     }
 

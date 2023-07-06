@@ -89,7 +89,7 @@
 <%!
 
 public String displayDate(){
-	SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd hh:mm");
+	SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd hh:mm");
 	Date toDate = Calendar.getInstance().getTime();
 	return dateFormat.format(toDate);
 }

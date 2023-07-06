@@ -6,6 +6,7 @@
 	session="true" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isThreadSafe="true" isErrorPage="false"
 	errorPage="error.jsp"%>
+<%@ page import="com.example.hplussample.bean.Product" %>
 
 
 <html lang="en">
@@ -52,11 +53,11 @@
 					active lifestyles</em>.
 			</p>
 			<%
-				if (session.getAttribute("noofproducts") != null) {
+				if (session.getAttribute("products") != null) {
 			%>
 			<span id="size"
-				title="<%=(ArrayList) session.getAttribute("noofproducts")%>">Items
-				in Cart: <%=((ArrayList) session.getAttribute("noofproducts")).size()%></span>
+				title="<%=(ArrayList) session.getAttribute("products")%>">Items
+				in Cart: <%=((ArrayList) session.getAttribute("products")).size()%></span>
 			<%
 				} else {
 			%>
@@ -83,7 +84,7 @@
 			<form method="get" action="products">
 
 				<div class="productContainerItem">
-					<img id="pic3" src="<%=product.getProductImgPath()%>"> 
+					<img id="pic3" src="<%=product.getProductImgPath()%>">
 					<input type="text" name="product" value="<%=product.getProductName()%>"><br />
 					<button>Add to Cart</button>
 				</div>
@@ -139,8 +140,8 @@
 					</div>
 					<!-- container text -->
 	</section>
-	
-	
+
+
 	<section id="people" class="section">
   <header class="imageheader"></header>
   <div class="container">
@@ -199,6 +200,7 @@
         </div>
         <p class="card-text">Michael Lewiston is a multi-faceted <em>creative person</em> who began his career as a designer for a small business firm, while also working as an independent <em>painter and sculptor</em>. In 2007, Henry Twill was impressed by Michael’s creative work in a national ad campaign for a high profile sports apparel company. Henry approached Michael, and asked him to <em>manage creative direction</em> for the H+ Sport ACTIVE apparel line.</p>
       </div><!-- person-card -->
+	</div> <!-- people cards -->
   </div><!-- container -->
 </section><!-- people -->
 
