@@ -61,6 +61,13 @@
         <%
             }
         %>
+<%--        <form method="get" action="addProducts">--%>
+<%--            <div class="productContainerItem">--%>
+<%--                <img id="pic" src="/images/mineralwater-blueberry.jpg">--%>
+<%--                <input type="text" name="product" value="mineralwater"><br/>--%>
+<%--                <button>Add to Cart</button>--%>
+<%--            </div>--%>
+<%--        </form>--%>
     </div>
 </section>
 <!-- #products -->

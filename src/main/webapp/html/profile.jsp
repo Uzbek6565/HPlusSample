@@ -23,8 +23,7 @@
 					<li><a href="home">home</a></li>
 					<li><a href="orderHistory">order history</a></li>
 					<!-- <li><a href="viewProfile">view my profile</a></li> -->
-					<li><a href='<%=response.encodeURL("viewProfile")%>'>view
-							my profile</a></li>
+					<li><a href='<%=response.encodeURL("viewProfile")%>'>view my profile</a></li>
 					<li><a href='logout'>logout</a></li>
 					<li><a href="redirect">linkedIn</a></li>
 
@@ -46,35 +45,35 @@
 			format="dd-MM-YYYY hh:mm"></ex:formatDate>
 	</section>
 	
-	<section id="profile" class="section">
-		<div class="container">
-			<h2 class="headline">My Profile</h2>
-			<table id="profile">
+<%--	<section id="profile" class="section">--%>
+<%--		<div class="container">--%>
+<%--			<h2 class="headline">My Profile</h2>--%>
+<%--			<table id="profile">--%>
 
-				<tr>
-					<td>Username</td>
-					<td><jsp:getProperty property="username" name="user" /></td>
-				</tr>
-				<tr>
-					<td>First Name</td>
-					<td><jsp:getProperty property="firstName" name="user" /></td>
-				</tr>
-				<tr>
-					<td>Last Name</td>
-					<td><jsp:getProperty property="lastName" name="user" /></td>
-				</tr>
-				<tr>
-					<td>Age</td>
-					<td>${user.age}</td>
-				</tr>
-				<tr>
-					<td>Interested in</td>
-					<td>${user.activity}</td>
-				</tr>
+<%--				<tr>--%>
+<%--					<td>Username</td>--%>
+<%--					<td><jsp:getProperty property="username" name="user" /></td>--%>
+<%--				</tr>--%>
+<%--				<tr>--%>
+<%--					<td>First Name</td>--%>
+<%--					<td><jsp:getProperty property="firstName" name="user" /></td>--%>
+<%--				</tr>--%>
+<%--				<tr>--%>
+<%--					<td>Last Name</td>--%>
+<%--					<td><jsp:getProperty property="lastName" name="user" /></td>--%>
+<%--				</tr>--%>
+<%--				<tr>--%>
+<%--					<td>Age</td>--%>
+<%--					<td>${user.age}</td>--%>
+<%--				</tr>--%>
+<%--				<tr>--%>
+<%--					<td>Interested in</td>--%>
+<%--					<td>${user.activity}</td>--%>
+<%--				</tr>--%>
 
-			</table>
-		</div>
-	</section>
+<%--			</table>--%>
+<%--		</div>--%>
+<%--	</section>--%>
 
 
 

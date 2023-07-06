@@ -20,4 +20,7 @@
         <param-name>dbURL</param-name>
         <param-value>jdbc:postgresql://localhost/postgres</param-value>
     </context-param>
+    <session-config>
+        <session-timeout>60</session-timeout><!--          in minutes-->
+    </session-config>
 </web-app>
