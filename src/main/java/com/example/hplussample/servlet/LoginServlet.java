@@ -22,11 +22,21 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        ApplicationDao applicationDao = new ApplicationDao();
+        boolean isValidUser = applicationDao.validateUser(username, password);
 
-        HttpSession session = req.getSession();
-        session.setAttribute("username", username);
-//        session.setMaxInactiveInterval(3600); //in seconds or you can set in web.xml
+        if (isValidUser) {
+            HttpSession session = req.getSession();
+            session.setAttribute("username", username);
+            session.setMaxInactiveInterval(3600); //in seconds or you can set in web.xml
+            req.getRequestDispatcher("/html/home.jsp").forward(req, resp);
+        }else {
+            String message = "Invalid credentials, pleasi login again!";
+            req.setAttribute("error", message);
+            req.getRequestDispatcher("/html/login.jsp").forward(req, resp);
+        }
 
-        req.getRequestDispatcher("/html/home.jsp").forward(req, resp);
+
+
     }
 }

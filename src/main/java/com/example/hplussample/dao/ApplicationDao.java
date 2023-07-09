@@ -8,6 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationDao {
+
+    public boolean validateUser(String username, String password) {
+        boolean isValidUser = false;
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM users WHERE username=? AND password=?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                isValidUser = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return isValidUser;
+    }
+
     public List<Product> searchProduct(String searchString) {
         List<Product> products = new ArrayList<>();
 
