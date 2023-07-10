@@ -12,7 +12,7 @@ public class ApplicationDao {
     public boolean validateUser(String username, String password) {
         boolean isValidUser = false;
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM users WHERE username=? AND password=?";
+        String query = "SELECT * FROM h_users WHERE username=? AND password=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
@@ -27,10 +27,9 @@ public class ApplicationDao {
         return isValidUser;
     }
 
-    public List<Product> searchProduct(String searchString) {
+    public List<Product> searchProduct(String searchString, Connection connection) {
         List<Product> products = new ArrayList<>();
 
-        Connection connection = DBConnection.getConnectionToDatabase();
         String query = "SELECT * FROM h_products WHERE product_name like '%" + searchString + "%'";
         Statement statement = null;
         try {

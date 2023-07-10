@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
+        Connection dbconnection = (Connection) req.getServletContext().getAttribute("dbconnection");
         List<String> cart = (List<String>) session.getAttribute("cart");
 
         if (cart == null) {
@@ -37,7 +38,7 @@ public class ProductsServlet extends HttpServlet {
 
         //get the search results from dao
         ApplicationDao dao = new ApplicationDao();
-        List<Product> products = dao.searchProduct(search);
+        List<Product> products = dao.searchProduct(search, dbconnection);
 
         req.setAttribute("products", products);
         req.getRequestDispatcher("/html/search.jsp").forward(req, resp);

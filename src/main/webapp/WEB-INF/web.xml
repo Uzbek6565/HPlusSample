@@ -3,19 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-<!--    <servlet>-->
-<!--        <servlet-name>GetServlet</servlet-name>-->
-<!--        <servlet-class>com.example.hplussample.servlet.GetServlet</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>URL</param-name>-->
-<!--            <param-value>https://www.weatherservice.com</param-value>-->
-<!--        </init-param>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>GetServlet</servlet-name>-->
-<!--        <url-pattern>/getServlet</url-pattern>-->
-<!--    </servlet-mapping>-->
-    
     <context-param>
         <param-name>dbURL</param-name>
         <param-value>jdbc:postgresql://localhost/postgres</param-value>
@@ -23,4 +10,18 @@
     <session-config>
         <session-timeout>60</session-timeout><!--          in minutes-->
     </session-config>
+
+<!--    <listener>-->
+<!--        <listener-class>com.example.hplussample.listener.ApplicationListener</listener-class>-->
+<!--    </listener>-->
+
+
+<!--    <filter>-->
+<!--        <filter-name>AuthenticationFilter</filter-name>-->
+<!--        <filter-class>com.example.hplussample.filter.AuthenticationFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>AuthenticationFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
 </web-app>

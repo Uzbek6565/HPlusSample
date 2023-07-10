@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
             session.setMaxInactiveInterval(3600); //in seconds or you can set in web.xml
             req.getRequestDispatcher("/html/home.jsp").forward(req, resp);
         }else {
-            String message = "Invalid credentials, pleasi login again!";
+            String message = "Invalid credentials, please login again!";
             req.setAttribute("error", message);
             req.getRequestDispatcher("/html/login.jsp").forward(req, resp);
         }

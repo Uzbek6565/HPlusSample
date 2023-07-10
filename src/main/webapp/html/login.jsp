@@ -10,7 +10,7 @@
     <title>H+ Sport</title>
 </head>
 <body>
-<%@include file="header.jsp"%>>
+<%@include file="header.jsp"%>
 <!-- #home -->
 
 
